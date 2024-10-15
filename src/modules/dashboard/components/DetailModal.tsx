@@ -1,6 +1,6 @@
 import React from 'react'
 import { HiX } from "react-icons/hi";
-import { useCommentDetail } from '../../hooks/useComment';
+import { useCommentDetail } from '../hooks/useComment';
 
 type DetailModalProps = {
   isOpen: boolean;
@@ -13,13 +13,11 @@ const DetailModal = ({ isOpen, onClose, commentId }: DetailModalProps) => {
   const { data: comment, isLoading } = useCommentDetail(commentId);
   if (!isOpen) return null;
 
-
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
       <div className="w-full max-w-lg pb-4 bg-white rounded-lg shadow-xl">
         <div className="flex items-start justify-between p-5 border-b border-gray-300 border-solid rounded-t">
-          <h3 className="text-2xl font-semibold">Comment - {comment?.id || ''}</h3>
+          <h3 className="text-2xl font-semibold">Comment {comment?.id || ''}</h3>
           <button
             className="float-right p-1 ml-auto text-3xl font-semibold leading-none text-black bg-transparent border-0 outline-none focus:outline-none"
             onClick={onClose}
