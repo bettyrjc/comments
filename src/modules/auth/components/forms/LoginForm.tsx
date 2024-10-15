@@ -13,20 +13,19 @@ const validationSchema = () => Yup.object().shape({
     .required('Password is required')
     .min(6, 'Password must be at least 6 characters long')
 });
-
 interface FormValues {
   email: string;
   password: string;
 }
-
-const LoginForm: React.FC = () => {
+interface LoginFormProps {
+  onSubmit: (data: any) => void;
+}
+const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
     resolver: yupResolver(validationSchema()),
   });
 
-  const onSubmit = (data: FormValues) => {
-    console.log('Form data', data);
-  };
+
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">

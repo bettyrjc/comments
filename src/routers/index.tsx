@@ -1,4 +1,3 @@
-import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import NotFound from '../modules/shared/views/NotFound'
 import Dashboard from '../modules/dashboard/views/Dashboard'
